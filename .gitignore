@@ -1,5 +1,8 @@
-# Configuration Files #
+# Position Files #
 ###################
-*.cfg
-*.conf
-*.ini
+enterStatus1.txt
+enterStatus2.txt
+setStatus1.txt
+masterPosition.sql
+exitStatus1.txt
+exitStatus2.txt
