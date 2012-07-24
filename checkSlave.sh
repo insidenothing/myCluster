@@ -2,8 +2,8 @@
 
 source /etc/myCluster.conf
 
-echo "check status of db1"
+logger -p local4.notice -t myCluster  "Get status of $box"
 mysql --user=$username --password=$password < /$path/checkSlave.sql > /$path/db1Status.txt
 
-echo "Parsing master information from db1"
+logger -p local4.notice -t myCluster  "Parsing position information from $box"
 php -f /$path/checkSlave.php

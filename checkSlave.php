@@ -11,13 +11,12 @@ if ($pos !== false) {
 $findme2   = 'No';
 $pos2 = strpos($line, $findme2);
 if ($pos2 !== false) {
-
-mail('insidenothing@gmail.com','Zed Auto-Starting Self-Heal: Slave_SQL_Running','healing based on'.$line);
+exec('logger -p local4.notice -t myCluster "Slave SQL NOT Running"');
 exec('/root/heal.sh');
 
 }
 } else {
-//    echo "The string '$findme' was not found in the string '$mystring'";
+exec('logger -p local4.notice -t myCluster "Slave SQL Running"');
 }
 }
 fclose($fh);
@@ -32,13 +31,11 @@ if ($pos !== false) {
 $findme2   = 'No';
 $pos2 = strpos($line, $findme2);
 if ($pos2 !== false) {
-
-mail('insidenothing@gmail.com','Zed Auto-Starting Self-Heal: Slave_IO_Running','healing based on'.$line);
+exec('logger -p local4.notice -t myCluster "Slave IO NOT Running"');
 exec('/root/heal.sh');
-
 }
 } else {
-//    echo "The string '$findme' was not found in the string '$mystring'";
+exec('logger -p local4.notice -t myCluster "Slave IO Running"');
 }
 }
 fclose($fh);

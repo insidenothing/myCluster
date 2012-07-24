@@ -12,10 +12,14 @@
 
 */
 
-$myFile = "/$path/masterPosition.sql";
-$fh = fopen($myFile, 'r');
-$file1 = fread($fh, filesize($myFile));
-fclose($fh);
-mail($email,'Slave Self-Heal',addslashes($file1));
+// cleanup script
+//$myFile = "/root/masterPosition.sql";
+//$fh = fopen($myFile, 'r');
+//$file1 = fread($fh, filesize($myFile));
+//fclose($fh);
+//mail('insidenothing@gmail.com','db1 Self-Heal',addslashes($file1));
+
+exec('logger -p local4.notice -t myCluster "Cleanup Complete"');
+?>
 
 ?>
